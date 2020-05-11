@@ -1,0 +1,480 @@
+/*
+orange color: #e67e22
+*/
+
+
+/*______________________________________________________*/
+/*BASIC SETUP*/
+/*______________________________________________________*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: #555;
+  font-family: Lato, arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility; 
+}
+
+/*  SIEMPRE DEBEMOS UTILIZAR ESTE COGIDO EN CADA SECCION DONDE UTILICEMOS FLOATS, PARA LIMPARLOS Y NO AFECTEN EL CODIGO QUE SIGUE */
+.clearfix {zoom:1}
+  .clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+
+/*______________________________________________________*/
+/*REUSABLE COMPONENTS*/
+/*______________________________________________________*/
+
+.row {
+  max-width: 1140px;
+/*  margin: 0 auto o auto; nos sirve mucho para centrar cosas dentro de un div */
+  margin:0 auto;
+}
+
+section {
+  /* utilizamos padding en vez de margin porque queremos conservar el color de fondo*/
+  padding: 80px;
+}
+
+.box{
+  padding: 1%;
+}
+
+
+
+
+/*-------HEADINGS-----------*/
+
+h1,
+h2,
+h3{
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1{
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  /* 240%=40px ya que el porcentaje es relativo a los 20px que  definimos mas arriba en la regla de html*/
+  font-size: 240%;
+  word-spacing: 4px; 
+}
+
+h2{
+  text-align: center;
+  /* 180%=36px ya que el porcentaje es relativo a los 20px que  definimos mas arriba en la regla de html*/
+  font-size: 180%;
+  word-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+h2:after{
+  display: block;
+  height: 2px;
+  width: 100px;
+  background-color: #e67e22;
+  /*se le pone content:" " para especificar que no queremos ningun contenido ni palabras en el bloque after que definimos*/
+  content: " ";
+  /*lo centramos con margin:0 auto; y no con text-align porque es elemento bloque y no texto*/
+  margin:0 auto;
+  margin-top: 30px;
+}
+
+h3{
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/*-------PARAGRAPHS-----------*/
+
+.long-copy{
+  /*la sepracion entre renglones*/
+  line-height: 145%;
+  /* le damos un width del 70% del 100% de lo que cabe en el row* de 1140px*/
+  width: 70%;
+  /*lo centramos con margin left porque al darle un width de 70%, se carga hacia la izquierda, nos sobra entonces un 30% y ese lo distribuimos en
+  15% para la derecha y otro 15% restante para la izquierda*/
+  margin-left: 15%;
+}
+
+.box p{
+  line-height: 145%;
+  font-size: 85%;
+}
+
+
+/*-------ICONS-----------*/
+
+.icon-big{
+  font-size: 300%;
+  display: block;   /* display :block para que force un line break*/
+  color: #e67e22;
+  margin-bottom: 15px; 
+}
+
+.small-icon {
+  display: inline-block;   /*inline block para que me deje meterle width y text align*/
+  width: 30px;
+  text-align: center;
+  font-size: 120%;
+  color: #e67e22;
+  margin-right: 10px;
+  /*secrets to align text and icons*/
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -6px; /*negative margin nos quita espacio*/
+}
+
+
+
+/*-------L I N K S-----------*/
+
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e67e22;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+/*-------BUTTONS-----------*/
+
+/* con link y visited  indicamos que los hypervinculos no cambiaran de color ni forma despues de ser visitados*/
+.btn:link,
+.btn:visited {
+  /* para cambiar el tipo de elemento de inline a block:*/
+  display: inline-block;
+  /*una vez modificiado se le puede agregar padding y margin, en este caso 
+  10px top y bottom y 30px left y right*/
+  padding: 10px 30px;
+  font-weight: 300;
+  /* para quitar el subrayado de los hypervinculos:*/
+  text-decoration: none;
+  /* redondeo de boton y colo de letra:*/
+  border-radius: 20px;
+  /* para indicar trasiciones suaves de color*/
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+
+  }
+
+
+.btn-full:link,
+.btn-full:visited {
+  background-color: #e67e22;
+  border: 1px solid #e67e22;
+  color: #fff;
+  /*indicar margen para separarlo del boton "ghost"*/
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #e67e22;
+  color:#e67e22;
+  
+}
+
+/*instrucciones para que los botones cambien al interactuar con el mouse*/
+.btn:hover,
+.btn:active{
+  background-color: #cf6d17;
+
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #cf6d17;
+  
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #cf6d17;
+  color: #fff;
+}
+
+
+/*______________________________________________________*/
+/*HEADER*/
+/*______________________________________________________*/
+
+header{
+  /*para dar el efecto de imagen oscura:*/
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/hero.jpg); 
+  /*imagen de fondo centrada y estirada correctamente:*/
+  background-size:cover;
+  background-position:center;
+  /*para que la imagen abarque toda la pantalla y se salga del header:*/
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+header img{
+  opacity: 0.7;
+  width: 100%;
+  height: 20%;
+  margin: 0;
+  padding: 0;
+  border-radius: 200px;  
+}
+.logo {
+  height: 100px;
+  width: auto;
+  float:left; 
+  margin-top: 20px;
+
+}
+
+
+/*-------NAVIGATION-----------*/
+
+.main-nav {
+  
+  float:right;
+  list-style: none;
+  margin-top: 55px;
+}
+
+.main-nav li {
+  /* "li" son block elements y lo que quermos es transformarlos a linline para ponerlos uno junto a otro-*/
+  display:inline-block;
+  margin-left: 40px;   
+}
+
+  /*ahora queremos dar formato a los links (a) dentro de las listas (li)*/
+.main-nav li a:link,
+.main-nav li a:visited{
+  /*el padding nos va a ayudar a separar la border-bottom del texto*/
+  padding: 8px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+ /*para que se de bien el efecto de aparecer, la transicion se debe definir desde el visited y link y no desde el hover*/
+  transition: border-bottom  0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+  border-bottom: 2px solid #e67e22;  
+}
+
+
+/*------- CENTER BIG TITLE TEXT AND BUTTONS-----------*/
+
+.hero-text-box{
+  position: absolute;
+  width: 1140px;
+  /*parq que la box quede centrada en la pantalla aunque se cambie de tamaño la ventana:*/
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+/*______________________________________________________*/
+/*FEATURES*/
+/*______________________________________________________*/
+
+
+/*cuidar los puntos a la izquierda de la clase cada vez que las anidemos*/
+.section-features .long-copy{
+  margin-bottom: 30px;
+}
+
+
+
+/*______________________________________________________*/
+/*MEALS*/
+/*______________________________________________________*/
+
+.section-meals{
+  /*para quitarle el padding que definimos mas arriba para todas las secciones, pero solo para esta sección de meals*/
+  padding: 0;
+}
+
+.meals-showcase {
+  list-style: none;
+  width: 100%;
+
+}
+
+.meals-showcase li {
+  display: block;
+  float:left;
+  width: 25%;
+  
+  
+}
+
+.meal-photo {
+  width: 100%;
+  margin: 0;
+  /* overflow:hidden es como una mascara para el contenedor y que las imagenes no se salgan de el mismo*/
+  overflow: hidden;
+  /*le indicamos background color negro para que la opacidad se vea negra, esto es en el tag "figure" porque va detras de img*/
+  background-color: #000000;
+   
+}
+
+.meal-photo img {
+  opacity: 0.7;
+  width: 100%;
+  height:auto;
+  /*para escalar la imagen*/
+  transform: scale(1.15);
+  /*animaciones de escala y opacidad */
+  transition: transform 0.5s, opacity 0.5s;
+  
+}
+
+.meal-photo img:hover {
+  /*al poner el maouse encima, regresa a la opacidad y la escala normal, el ".03" fue para que no se vea una linea rara en la base de las imagenes*/
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/*______________________________________________________*/
+/*HOW IT WORKS*/
+/*______________________________________________________*/
+
+.how-it-works{
+  background-color: #f4f4f4;
+}
+
+
+.steps-box:first-child {
+  text-align: right;
+  padding-right: 3%;
+   margin-top: 30px;
+}
+
+.steps-box:last-child {
+  padding-left: 3%;
+  margin-top: 70px;
+}
+
+.app-screen {
+  width: 40%;
+}
+
+.works-step {
+margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.works-step div {
+  color: #e67e22;
+  border: 2px solid #e67e22;
+  display: inline-block;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  padding: 5px;
+  font-size: 150%;
+  float:left;
+  margin-right: 25px;
+}
+
+/* le voy a quitar los borders porque la regla de los links de twitter en las ciudades esta poniendoles border-bottom a todos los elementos de links "<a>"*/
+.btn-app:link,
+.btn-app:visited{
+  border: 0;
+  /*otra forma pudo ser haberle puesto un ".city-feature a" a esos links para que solo la regla aplicara a los <a> dentro de esa clase*/
+  
+}
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+
+
+/*______________________________________________________*/
+/*CITIES-SECTION*/
+/*______________________________________________________*/
+
+.city-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px; 
+}
+
+.city-feature {
+  margin-bottom: 5px;
+}
+
+
+/*______________________________________________________*/
+/*TESTIMONIALS*/
+/*______________________________________________________*/
+
+.section-testimonials{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+
+blockquote{
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;/*Se define como relative ya que es el padre de las comillas que están en absolute*/
+  margin-top: 40px;
+}
+
+
+/*SPara acomodar las comillas*/
+blockquote:before{
+  content: "\201C";
+  font-size: 500%;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  
+}
+
+cite{
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+cite img{
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle; /*Super util para centrar imagenes, iconos, etc*/
+}
+
+
+
+
