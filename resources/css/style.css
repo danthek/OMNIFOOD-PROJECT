@@ -10,19 +10,22 @@ orange color: #e67e22
 *{
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-html {
+html,
+body{
   background-color: #fff;
   color: #555;
-  font-family: Lato, arial, sans-serif;
+  font-family: 'Lato', 'arial', sans-serif;
   font-size: 20px;
   font-weight: 300;
   text-rendering: optimizeLegibility; 
+  overflow-x: hidden;
 }
 
-/*  SIEMPRE DEBEMOS UTILIZAR ESTE COGIDO EN CADA SECCION DONDE UTILICEMOS FLOATS, PARA LIMPARLOS Y NO AFECTEN EL CODIGO QUE SIGUE */
+/*  SIEMPRE DEBEMOS UTILIZAR ESTE CODIGO EN CADA SECCION DONDE UTILICEMOS FLOATS, PARA LIMPARLOS Y NO AFECTEN EL CODIGO QUE SIGUE */
 .clearfix {zoom:1}
   .clearfix:after {
     content: '.';
@@ -138,6 +141,10 @@ h3{
   margin-top: -6px; /*negative margin nos quita espacio*/
 }
 
+.heart-icon {
+  padding: 0 3px;
+  color: #ea0000;
+  }
 
 
 /*-------L I N K S-----------*/
@@ -148,6 +155,7 @@ a:visited {
   text-decoration: none;
   padding-bottom: 1px;
   border-bottom: 1px solid #e67e22;
+  -webkit-transition: border-bottom 0.2s, color 0.2s;
   transition: border-bottom 0.2s, color 0.2s;
 }
 
@@ -161,7 +169,8 @@ a:active {
 
 /* con link y visited  indicamos que los hypervinculos no cambiaran de color ni forma despues de ser visitados*/
 .btn:link,
-.btn:visited {
+.btn:visited,
+input[type="submit"]{
   /* para cambiar el tipo de elemento de inline a block:*/
   display: inline-block;
   /*una vez modificiado se le puede agregar padding y margin, en este caso 
@@ -173,13 +182,15 @@ a:active {
   /* redondeo de boton y colo de letra:*/
   border-radius: 20px;
   /* para indicar trasiciones suaves de color*/
+  -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 
   }
 
 
 .btn-full:link,
-.btn-full:visited {
+.btn-full:visited,
+input[type="submit"]{
   background-color: #e67e22;
   border: 1px solid #e67e22;
   color: #fff;
@@ -196,13 +207,17 @@ a:active {
 
 /*instrucciones para que los botones cambien al interactuar con el mouse*/
 .btn:hover,
-.btn:active{
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active{
   background-color: #cf6d17;
 
 }
 
 .btn-full:hover,
-.btn-full:active {
+.btn-full:active,
+input[type="submit"]:hover,
+input[type="submit"]:active{
   border: 1px solid #cf6d17;
   
 }
@@ -220,6 +235,7 @@ a:active {
 
 header{
   /*para dar el efecto de imagen oscura:*/
+  background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero.jpg);
   background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/hero.jpg); 
   /*imagen de fondo centrada y estirada correctamente:*/
   background-size:cover;
@@ -231,12 +247,13 @@ header{
 
 header img{
   opacity: 0.7;
-  width: 100%;
+  width: 10%;
   height: 20%;
   margin: 0;
   padding: 0;
   border-radius: 200px;  
 }
+
 .logo {
   height: 100px;
   width: auto;
@@ -245,9 +262,23 @@ header img{
 
 }
 
+.black-logo {
+  display: none; /* I did this so it doesnt appear at first glance over the normal white logo, but only when the "sticky" class triggers.*/
+  height: 50px;
+  width: auto;
+  float:left; 
+  margin: 5px 0;
 
-/*-------NAVIGATION-----------*/
+}
 
+
+/*______________________________________________________*/
+/*N A V I G A T I O N*/
+/*______________________________________________________*/
+
+
+
+/*-------MAIN NAVI----------*/
 .main-nav {
   
   float:right;
@@ -272,6 +303,7 @@ header img{
   font-size: 90%;
   border-bottom: 2px solid transparent;
  /*para que se de bien el efecto de aparecer, la transicion se debe definir desde el visited y link y no desde el hover*/
+  -webkit-transition: border-bottom  0.2s;
   transition: border-bottom  0.2s;
 }
 
@@ -279,6 +311,53 @@ header img{
 .main-nav li a:active{
   border-bottom: 2px solid #e67e22;  
 }
+
+
+/*--------------------------------MOBILE NAVI------------------------------*/
+  .mobile-nav-icon{
+   float: right;
+    margin-top: 20px;
+    cursor: pointer;
+    display: none;
+ 
+}
+
+.mobile-nav-icon i{
+   font-size: 200%;
+    color: #fff;
+ 
+}
+
+/*--------------------------------STICKY NAVI for JS------------------------------*/
+
+.sticky{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.98);
+  -webkit-box-shadow: 0 2px 2px #dedddd;
+  box-shadow: 0 2px 2px #dedddd; /* X, Y, blur, color*/
+  z-index: 9999;/*me permite poner hasta arriba de todo un elemento*/
+}
+
+.sticky .main-nav {margin-top: 18px;}
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  padding: 17px 0;
+  color:#555;
+}
+
+.sticky .black-logo{display: block;} /* I did this so it can appear when the "sticky" triggers because its originally "hidden"*/
+.sticky .logo{display: none;} /* with this, the big white logo hides*/
+
+/*.sticky .ion-navicon-round,
+.sticky .ion-close-round{
+  color: #000000; esto es lo de abajo pero mas resumido:*/
+
+.sticky .mobile-nav-icon i{color: #000000}
+
+
 
 
 /*------- CENTER BIG TITLE TEXT AND BUTTONS-----------*/
@@ -289,6 +368,7 @@ header img{
   /*parq que la box quede centrada en la pantalla aunque se cambie de tamaño la ventana:*/
   top: 50%;
   left:50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -342,15 +422,20 @@ header img{
   width: 100%;
   height:auto;
   /*para escalar la imagen*/
+  -webkit-transform: scale(1.15);
   transform: scale(1.15);
   /*animaciones de escala y opacidad */
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, -webkit-transform 0.5s;
   transition: transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
   
 }
 
 .meal-photo img:hover {
   /*al poner el maouse encima, regresa a la opacidad y la escala normal, el ".03" fue para que no se vea una linea rara en la base de las imagenes*/
   opacity: 1;
+  -webkit-transform: scale(1.03);
   transform: scale(1.03);
 }
 
@@ -363,15 +448,19 @@ header img{
 }
 
 
-.steps-box:first-child {
-  text-align: right;
-  padding-right: 3%;
+.steps-box{
    margin-top: 30px;
+}
+
+.steps-box:first-child{
+  text-align:right; /*  eñ text align sirve tambien para alinear imagenes no solo texto*/
+  padding-right: 3%;
 }
 
 .steps-box:last-child {
   padding-left: 3%;
   margin-top: 70px;
+  text-align: left;
 }
 
 .app-screen {
@@ -435,6 +524,7 @@ margin-bottom: 50px;
 /*______________________________________________________*/
 
 .section-testimonials{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -488,7 +578,8 @@ cite img{
   border-radius: 5px;
   width: 90%;
   margin-left: 5%;
-  box-shadow: 0 3px 2px #efefef; /*Y X BLUR, COLOR*/
+  -webkit-box-shadow: 0 3px 2px #efefef;
+  box-shadow: 0 3px 2px #efefef; /* Y X BLUR, COLOR*/
 }
 
 .plan-box div{
@@ -529,4 +620,138 @@ cite img{
 
 .plan-box ul li{
   padding: 5px 0;
+}
+
+/*______________________________________________________*/
+/*FORM*/
+/*______________________________________________________*/
+
+.contact-form{
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[name="name"],
+input[name="email"], /*me podria ahorrar estas 2 instrucciones indicando solo input[type=text]*/
+select,
+textarea{
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+}
+
+textarea{
+  height: 100px;
+}
+
+input[type=checkbox]{
+  margin: 10px 5px 10px 0;
+}
+
+/*para quitar los bordes azules automaticos del navegador en cada item de la "form"*/
+*:focus{
+  outline: none;
+}
+
+
+/*______________________________________________________*/
+/*FOOTER*/
+/*______________________________________________________*/
+
+ 
+footer{
+  background-color: #333;
+  padding: 50px;
+  font-size: 80%;
+}
+
+.footer-nav{
+  float: left;
+  list-style: none;
+}
+
+.footer-nav li{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links a:link,
+.social-links a:visited{
+  text-decoration: none;
+  border: 0;
+  color: #888;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+ 
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active{
+  color: #e67e22;
+}
+
+
+
+.social-links{
+  float: right;
+  list-style: none;
+}
+
+.social-links li{
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 165%;
+}
+
+
+ion-icon[name=logo-facebook],
+ion-icon[name=logo-twitter],
+ion-icon[name=logo-google],
+ion-icon[name=logo-instagram]{
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+
+
+ion-icon[name=logo-facebook]:hover{
+    color: #3b5998;
+}
+ion-icon[name=logo-twitter]:hover{
+    color: #00aced;
+}
+ion-icon[name=logo-google]:hover{
+    color: #dd4b39;
+}
+ion-icon[name=logo-instagram]:hover{
+    color: #bc2a8d;
+}
+ 
+
+footer p{
+  color:#888;
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+/*______________________________________________________*/
+/*ANIMATIONS*/
+/*______________________________________________________*/
+
+.js--wp-1{
+  opacity: 0;
+} /* i did this because i need the row to appear since the effect is a fadein, other wise the effect wouldnt be noticeble*/
+
+.section-cities img{
+  opacity: 0;
+}
+
+.app-screen {
+  opacity: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
 }
