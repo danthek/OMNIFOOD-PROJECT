@@ -135,13 +135,11 @@
       header{
           background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/hero.jpg); 
           background-attachment: scroll;
-        
       }
   
       .contact-form{width: 100%;}
       section{ padding: 25px 0;}
 
-      .app-btn-align{text-align: center;}
   
       .btn-app img { 
         height: 40px;
