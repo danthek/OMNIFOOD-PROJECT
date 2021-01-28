@@ -136,6 +136,9 @@ header{
   /*para dar el efecto de imagen oscura:*/
   
 background-image: url(img/hero-gundam.jpg);
+  background-size:cover;
+
+
 }
   
       .contact-form{width: 100%;}
