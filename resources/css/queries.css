@@ -136,7 +136,7 @@ header{
   /*para dar el efecto de imagen oscura:*/
   background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-ios.png);
    background-image:-o-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-hero-ios.png));
-  background-image: -moz-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-hero-ios.png));
+  background-image:-moz-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-hero-ios.png));
   background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/hero-hero-ios.png); 
   /*imagen de fondo centrada y estirada correctamente:*/
   background-size:cover;
@@ -146,7 +146,7 @@ header{
   background-position:center;
   /*para que la imagen abarque toda la pantalla y se salga del header:*/
   height: 100vh;
-  background-attachment:inherit;
+  background-attachment:fixed;
    background-repeat: no-repeat;
 }
   
