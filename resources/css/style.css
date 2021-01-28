@@ -494,13 +494,14 @@ margin-bottom: 50px;
 .btn-app:visited{
   border: 0;
   /*otra forma pudo ser haberle puesto un ".city-feature a" a esos links para que solo la regla aplicara a los <a> dentro de esa clase*/
-  
+
 }
 .btn-app img {
   height: 50px;
   width: auto;
   margin-right: 10px;
 }
+
 
 
 
@@ -754,4 +755,10 @@ footer p{
   opacity: 0;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
+}
+
+
+.apple {
+  
+  
 }
