@@ -145,8 +145,17 @@
         height: 40px;
         width: 130px;
       }
+      
+  footer{padding: 50px 30px}
   
-
+  .footer-nav{
+     float: none;
+    text-align: center;
+  }
+  
+  .social-links{
+    float: none;
+    text-align: center;}
 }
 
 
