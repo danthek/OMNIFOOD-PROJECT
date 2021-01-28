@@ -129,14 +129,15 @@
 
 
 /*Small phones from 0 to 480*/
-@media only screen and (max-width:280px){
+@media only screen and (max-width:480px){
   
     .contact-form{width: 100%;}
   
     section{ padding: 25px 0;}
     
-
-  
+  .app-btn-align{
+   text-align: center; 
+  }
   .btn-app img { 
   height: 40px;
      width: 130px;
