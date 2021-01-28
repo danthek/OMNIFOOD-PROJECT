@@ -129,25 +129,13 @@
 
 
 /*Small phones from 0 to 480*/
-@media only screen and (max-width:480px){
+@media only screen and (max-width:580px){
   
       
 header{
   /*para dar el efecto de imagen oscura:*/
   
-  background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/london.jpg);
-   background-image:-o-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/london.jpg));
-  background-image:-moz-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/london.jpg));
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/london.jpg); 
-  /*imagen de fondo centrada y estirada correctamente:*/
-  background-size:cover;
-   -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-  background-position:center;
-  /*para que la imagen abarque toda la pantalla y se salga del header:*/
-  height: 100vh;
-   background-repeat: no-repeat;
+background-image: url(img/london.jpg);
 }
   
       .contact-form{width: 100%;}
