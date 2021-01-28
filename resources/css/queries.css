@@ -146,7 +146,7 @@ header{
   background-position:center;
   /*para que la imagen abarque toda la pantalla y se salga del header:*/
   height: 100vh;
-  background-attachment: fixed;
+  background-attachment:inherit;
    background-repeat: no-repeat;
 }
   
