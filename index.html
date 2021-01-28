@@ -3,35 +3,59 @@
 <HTML lang="en">
   
     <HEAD>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">   <!--this means the mobile phones to not zoom out the page, instead they must present the page with the scale of one-->  
+      <meta name="description" content="Omnifood is a premium food delivery service with the mission to bring affordable and healthy meal to as many people as possible">
+      
       <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
       <link rel="stylesheet" type="text/css" href="vendors/css/Grid.css">
+      <link rel="stylesheet" href="vendors/css/ionicons.min.css"> <!-- le agregue este archivo ya que la forma en que los iconos se usan
+con la nueva version de ion icons no es compatible con java para hacer el cambio de icono de menu a "x" al hacer click en el sticky nav-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"> <!-- este es el link viejo, el nuevo no se porque pero no jala los efectos desde js-->
       <link rel=stylesheet type="text/css" href="resources/css/style.css">
-      <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet"> 
+      <link rel=stylesheet type="text/css" href="resources/css/queries.css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
       <title>Omnifood</title>
+      
+      <!--este es el codigo para que se activen los fav icons que creé-->
+      <link rel="apple-touch-icon" sizes="180x180" href="\resources\favicons/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="\resources\favicons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="\resources\favicons/favicon-16x16.png">
+      <link rel="manifest" href="\resources\favicons/site.webmanifest">
+      <link rel="mask-icon" href="\resources\favicons/safari-pinned-tab.svg" color="#5bbad5">
+      <link rel="shortcut icon" href="\resources\favicons/favicon.ico">
+      <meta name="msapplication-TileColor" content="#ffc40d">
+      <meta name="msapplication-config" content="\resources\favicons/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
+
     </HEAD>
   
     <BODY>
             <header>
                 <nav>
                     <div class="row">
-                      <img  src="resources/img/logo-white.png"alt="Omnifood Logo" class="logo" >
-                      <ul class="main-nav">
-                        <li> <a href="#">Food delivery</a> </li>
-                        <li> <a href="#">How it works</a> </li>
-                        <li> <a href="#">Our cities</a> </li>
-                        <li> <a href="#">Sign up</a> </li>
+                      <img  src="resources/img/logo-white.png" alt="Omnifood Logo" class="logo" >
+                      <img  src="resources/img/logo.png" alt="Omnifood Logo" class="black-logo" >
+                      <ul class="main-nav js--main-nav">
+                        <li> <a href="#features">Food delivery</a> </li>
+                        <li> <a href="#works">How it works</a> </li>
+                        <li> <a href="#cities">Our cities</a> </li>
+                        <li> <a href="#plans">Sign up</a> </li>
                       </ul>
+                        <a class="mobile-nav-icon  js--nav-icon"><i class="ion-navicon-round"></i></a>
                     </div>
                 </nav>
               
                 <div class="hero-text-box">
                       <h1>Goodbye junk food. <br> Hello super healthy meals.</h1>
-                      <a class="btn btn-full" href="#">  I’m hungry </a> 
-                      <a class="btn btn-ghost" href="#"> Show me more </a>  
+                      <a class="btn btn-full js--scroll-to-plans" href="#">  I'm hungry </a> <!-- les dejo el # si no, no se ven como links-->
+                      <a class="btn btn-ghost js--scroll-to-features" href="#"> Show me more </a>  
                 </div>
             </header>
 
-                  <section class="section-features">
+                  <section class="section-features js--section-features" id="features"> <!-- le agregue la otra clase "js--barra
+                                                                                para no mezlcar clases y poder mandarla a llamar /utilizarla en 
+                                                                                el script de js-->
                         <div class="row">
                             <h2> Get food fast &mdash; not fast food</h2>  
                             <!-- el &mdash; sirve para poner guion largo y se considera una "special entity" -->
@@ -40,7 +64,7 @@
                             </p>
                         </div>
 
-                            <div class="row">
+                        <div class="row js--wp-1"> <!-- le agregue la clase "js--wp-1" para las animaciones js-->
                                 <div class="col span-1-of-4 box">
                                     <ion-icon name="infinite" class=icon-big> </ion-icon>
                                    <h3>Up to 365 days/year</h3> 
@@ -48,19 +72,19 @@
                                     </p>
                                 </div>     
                                 <div class="col span-1-of-4 box">
-                                  <ion-icon name="alarm"class=icon-big></ion-icon>
+                                  <ion-icon name="alarm" class=icon-big></ion-icon>
                                    <h3>Ready in 20 minutes</h3> 
                                     <p>You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
                                     </p>
                                 </div>     
                                 <div class="col span-1-of-4 box">
-                                  <ion-icon name="nutrition"class=icon-big></ion-icon>
+                                  <ion-icon name="nutrition" class=icon-big></ion-icon>
                                    <h3>100% organic</h3> 
                                     <p>All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!
                                     </p>
                                 </div>     
-                                <div class="col span-1-of-4 box ">
-                                  <ion-icon name="cart"class=icon-big></ion-icon>
+                                <div class="col span-1-of-4 box">
+                                  <ion-icon name="cart" class=icon-big></ion-icon>
                                    <h3>Order anything</h3> 
                                     <p>
                                     We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you!
@@ -118,7 +142,7 @@
                     </ul>
                   </section>
       
-                  <section class="how-it-works">
+                      <section class="how-it-works js--wp-2" id="works">
                       <div class="row">
                         <h2>How it works &mdash; Simple as 1, 2, 3</h2>
                       </div>
@@ -144,122 +168,122 @@
                               </div> 
                           </div>
                   </section>      
-      
-                  <section class="section-cities">
-                          <div class="row">
-                              <h2>We're currently in these cities</h2>
-                          </div>
-                              <div class="row">
-                                  <div class="col span-1-of-4">
-                                      <img src="resources/img/lisbon-3.jpg" alt="Lisbon Image" class="city-image">
-                                      <h3>Lisbon</h3>
-                                      <div class="city-feature">
-                                          <ion-icon name="person" class="small-icon" ></ion-icon>
-                                          1600+ happy eaters
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="star" class="small-icon" ></ion-icon>
-                                          60+ top chefs
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
-                                          <a href="#">@omnifood_lx</a>
-                                      </div>
-                                  </div>
-                               
-                                  <div class="col span-1-of-4">
-                                      <img src="resources/img/san-francisco.jpg" alt="San Francisco Image" class="city-image">
-                                      <h3>San Francisco</h3>
-                                      <div class="city-feature">
-                                          <ion-icon name="person" class="small-icon" ></ion-icon>
-                                          3700+ happy eaters
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="star" class="small-icon" ></ion-icon>
-                                          160+ top chefs
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
-                                          <a href="#">@omnifood_sf</a>
-                                      </div>
-                                  </div>
-                           
-                                  <div class="col span-1-of-4">
-                                      <img src="resources/img/berlin.jpg" alt="Berlin Image" class="city-image">
-                                      <h3>Berlin</h3>
-                                      <div class="city-feature">
-                                          <ion-icon name="person" class="small-icon" ></ion-icon>
-                                          2300+ happy eaters
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="star" class="small-icon" ></ion-icon>
-                                          110+ top chefs
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
-                                          <a href="#">@omnifood_berlin</a>
-                                      </div>
-                                  </div>
-                                
-                                  <div class="col span-1-of-4">
-                                      <img src="resources/img/london.jpg" alt="London Image" class="city-image">
-                                      <h3>London</h3>
-                                      <div class="city-feature">
-                                          <ion-icon name="person" class="small-icon" ></ion-icon>
-                                          1200+ happy eaters
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="star" class="small-icon" ></ion-icon>
-                                          50+ top chefs
-                                      </div>
-                                      <div class="city-feature">
-                                          <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
-                                          <a href="#">@omnifood_london</a>
-                                      </div>
-                                  </div>
-                                
-                              </div>
-                  </section>
-        
-                  <section class="section-testimonials">
-                    <div class="row">
-                    <h2>Our customers can't live without us</h2>
-                    </div>
+
+                        <section class="section-cities js--wp-3" id="cities">
+                            <div class="row">
+                                <h2>We're currently in these cities</h2>
+                            </div>
+                                <div class="row">
+                                    <div class="col span-1-of-4">
+                                        <img src="resources/img/lisbon-3.jpg" alt="Lisbon Image" class="city-image">
+                                        <h3>Lisbon</h3>
+                                        <div class="city-feature">
+                                            <ion-icon name="person" class="small-icon" ></ion-icon>
+                                            1600+ happy eaters
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="star" class="small-icon" ></ion-icon>
+                                            60+ top chefs
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
+                                            <a href="#">@omnifood_lx</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col span-1-of-4">
+                                        <img src="resources/img/san-francisco.jpg" alt="San Francisco Image" class="city-image">
+                                        <h3>San Francisco</h3>
+                                        <div class="city-feature">
+                                            <ion-icon name="person" class="small-icon" ></ion-icon>
+                                            3700+ happy eaters
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="star" class="small-icon" ></ion-icon>
+                                            160+ top chefs
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
+                                            <a href="#">@omnifood_sf</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col span-1-of-4">
+                                        <img src="resources/img/berlin.jpg" alt="Berlin Image" class="city-image">
+                                        <h3>Berlin</h3>
+                                        <div class="city-feature">
+                                            <ion-icon name="person" class="small-icon" ></ion-icon>
+                                            2300+ happy eaters
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="star" class="small-icon" ></ion-icon>
+                                            110+ top chefs
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
+                                            <a href="#">@omnifood_berlin</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col span-1-of-4">
+                                        <img src="resources/img/london.jpg" alt="London Image" class="city-image">
+                                        <h3>London</h3>
+                                        <div class="city-feature">
+                                            <ion-icon name="person" class="small-icon" ></ion-icon>
+                                            1200+ happy eaters
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="star" class="small-icon" ></ion-icon>
+                                            50+ top chefs
+                                        </div>
+                                        <div class="city-feature">
+                                            <ion-icon name="logo-twitter" class="small-icon" ></ion-icon>
+                                            <a href="#">@omnifood_london</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+</section>
+
+                        <section class="section-testimonials">
                       <div class="row">
-                        <div class="col span-1-of-3">
-                          <blockquote>
-                          Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
-                            <cite>
-                            <img src="resources/img/customer-1.jpg" alt="customer picture"> Alberto Duncan
-                            </cite>
-                          </blockquote>
-                        </div>
+                      <h2>Our customers can't live without us</h2>
+                      </div>
+                        <div class="row">
                           <div class="col span-1-of-3">
-                          <blockquote>
-                         Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
-                            <cite>
-                            <img src="resources/img/customer-2.jpg" alt="customer picture"> Joana Silva
-                            </cite>
-                          </blockquote>
-                        </div>
-                          <div class="col span-1-of-3">
-                          <blockquote>
-                      I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
-                            <cite>
-                            <img src="resources/img/customer-3.jpg" alt="customer picture"> Milton Chapman
-                            </cite>
-                          </blockquote>
-                        </div>
-                    </div>
-                  </section>
-      
-                  <section class="section-plans">
+                            <blockquote>
+                            Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                              <cite>
+                              <img src="resources/img/customer-1.jpg" alt="customer picture"> Alberto Duncan
+                              </cite>
+                            </blockquote>
+                          </div>
+                            <div class="col span-1-of-3">
+                            <blockquote>
+                           Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+                              <cite>
+                              <img src="resources/img/customer-2.jpg" alt="customer picture"> Joana Silva
+                              </cite>
+                            </blockquote>
+                          </div>
+                            <div class="col span-1-of-3">
+                            <blockquote>
+                        I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+                              <cite>
+                              <img src="resources/img/customer-3.jpg" alt="customer picture"> Milton Chapman
+                              </cite>
+                            </blockquote>
+                          </div>
+                      </div>
+</section>
+
+                    <section class="section-plans js--section-plans" id="plans">
                       <div class="row">
                       <h2>Start eating healthy today</h2>
                       </div>
                         <div class="row"> 
                             <div class="col span-1-of-3">
-                                <div class="plan-box">
+                                <div class="plan-box js--wp-4">
                                    <div>
                                      <h3>Premium</h3>
                                       <p class="plan-price">$399 <span>/month</span> </p>
@@ -269,7 +293,7 @@
                                       <ul>
                                         <li><ion-icon name="checkmark-outline" class=small-icon></ion-icon>1 meal every day</li>
                                         <li><ion-icon name="checkmark-outline" class=small-icon></ion-icon>Order 24/7</li>
-                                        <li><ion-icon name="checkmark-outline" class=small-icon></ion-icon>Access to newest creations</li>
+                                        <li><ion-icon name="checkmark-outline" class=small-icon></ion-icon>Access to newest creations </li>
                                         <li><ion-icon name="checkmark-outline" class=small-icon></ion-icon>Free delivery</li>
                                       </ul>
                                     </div>
@@ -331,7 +355,7 @@
                     <h2>We're happy to hear from you</h2>
                     </div>
                       <div class="row">
-                        <form method="post" action="#" class="action-form">
+                        <form method="post" action="#" class="contact-form">
                           <div class="row">
                             <div class="col span-1-of-3">
                               <label for="name">Name</label>
@@ -388,18 +412,52 @@
                         
                         </form>
                       </div>
-      
-      
                   </section>
-      <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+      <!-- a la mayoria de las secciones les puse la clase "js--wp-x" para poderle asignar clases de efectos de movimientos en js-->
+      
+           <footer>
+                    <div class="row">
+                      <div class="col span-1-of-2">
+                        <ul class="footer-nav">
+                          <li><a href="#">About us</a></li>
+                          <li><a href="#">Blog</a></li>
+                          <li><a href="#">Press</a></li>
+                          <li><a href="#">iOS App</a></li>
+                          <li><a href="#">Android App</a></li>
+                        </ul>
+                      </div>
+                      <div class="col span-1-of-2">
+                        <ul class="social-links">
+                          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                          <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                          <li><a href="#"><ion-icon name="logo-google"></ion-icon></a></li>
+                          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                        <div class="row">
+                          <p>This webpage was created for the purpose of learning "Web Design and Develop Using HTML5 and CSS3" by <span style="color:#e67e22 ">Danthek</span>     
+                            No copyrights here.
+                            <br>
+                              This webpage is for you! So go and do whatever you want with it and have fun.
+                          </p>
+                          <p>Build with<ion-icon name="heart" class="heart-icon"></ion-icon>in the beautiful city of Colima, México, May 2020.</p>
+                              
+                        </div>
+                  </footer>
+      
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+          <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+          <script src="vendors/js/jquery.waypoints.min.js"></script>
+          <script src="resources/js/script.js"></script>  <!--nuestro script siempre debe ir al final-->
+        
+      
     </BODY>
 
 
 </HTML>
 
-<!--
 
-
-
-
---!>
