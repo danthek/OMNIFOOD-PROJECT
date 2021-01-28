@@ -131,18 +131,34 @@
 /*Small phones from 0 to 480*/
 @media only screen and (max-width:480px){
   
-    .contact-form{width: 100%;}
+      
+header{
+  /*para dar el efecto de imagen oscura:*/
+  background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-iphone.jpg);
+   background-image:-o-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-iphone.jpg));
+  background-image: -moz-(linear,left top, left bottom,from(rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.7))), url(img/hero-iphone.jpg));
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(img/hero-iphone.jpg); 
+  /*imagen de fondo centrada y estirada correctamente:*/
+  background-size:cover;
+   -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+  background-position:center;
+  /*para que la imagen abarque toda la pantalla y se salga del header:*/
+  height: 100vh;
+  background-attachment: fixed;
+   background-repeat: no-repeat;
+}
   
-    section{ padding: 25px 0;}
-    
-  .app-btn-align{
-   text-align: center; 
-  }
-  .btn-app img { 
-  height: 40px;
-     width: 130px;
-    
-  }
+      .contact-form{width: 100%;}
+      section{ padding: 25px 0;}
+
+      .app-btn-align{text-align: center;}
+  
+      .btn-app img { 
+        height: 40px;
+        width: 130px;
+      }
   
 
 }
