@@ -129,15 +129,19 @@
 
 
 /*Small phones from 0 to 480*/
-@media only screen and (max-width:480px){
+@media only screen and (max-width:280px){
   
     .contact-form{width: 100%;}
   
     section{ padding: 25px 0;}
     
-.btn-app.apple img { margin-right: 1px;
- 
-}
+
+  
+  .btn-app img { 
+  height: 40px;
+     width: 130px;
+    
+  }
   
 
 }
