@@ -140,6 +140,13 @@
       .contact-form{width: 100%;}
       section{ padding: 25px 0;}
 
+  .steps-box:last-child {
+  padding-left: 3%;
+  margin-top: 30px;
+  text-align:center;
+}
+  
+  .app-btn-align{text-align: center;}
   
       .btn-app img { 
         height: 40px;
