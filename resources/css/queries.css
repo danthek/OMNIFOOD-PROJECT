@@ -135,7 +135,6 @@
       header{
         /*para dar el efecto de imagen oscura:*/
       background-image: url(img/hero.jpg);
-        background-attachment: scroll;
       }
   
       .contact-form{width: 100%;}
