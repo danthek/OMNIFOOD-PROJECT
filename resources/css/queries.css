@@ -135,8 +135,6 @@
       header{
         /*para dar el efecto de imagen oscura:*/
       background-image: url(img/london.jpg);
-      background-size:cover;
-    
       }
   
       .contact-form{width: 100%;}
