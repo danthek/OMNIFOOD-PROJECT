@@ -146,7 +146,11 @@
   text-align:center;
 }
   
-  .app-btn-align{text-align: center;}
+  .app-btn-align{
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+  }
   
       .btn-app img { 
         height: 40px;
