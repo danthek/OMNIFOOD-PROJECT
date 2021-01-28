@@ -132,15 +132,12 @@
 @media only screen and (max-width:580px){
   
       
-header{
-  /*para dar el efecto de imagen oscura:*/
-  
-background-image: url(img/HULK.jpg);
-
- background-size:cover;
-   background-position:center;
-
-}
+      header{
+        /*para dar el efecto de imagen oscura:*/
+      background-image: url(img/london.jpg);
+      background-size:cover;
+      background-position:center;
+      }
   
       .contact-form{width: 100%;}
       section{ padding: 25px 0;}
